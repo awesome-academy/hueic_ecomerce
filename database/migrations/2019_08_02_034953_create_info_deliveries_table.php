@@ -15,12 +15,9 @@ class CreateInfoDeliveriesTable extends Migration
     {
         Schema::create('info_deliveries', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')
-                ->references('id')->on('users')
-                ->onDelete('cascade');
+            $table->bigInteger('user_id')->unsigned();            
             $table->string('name');
-            $tabel->text('address');
+            $table->text('address');
             $table->string('phone');
             $table->string('note');
             $table->timestamps();

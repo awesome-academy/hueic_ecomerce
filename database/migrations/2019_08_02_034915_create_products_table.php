@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->boolean('is_hot_trend')->default(false);
             $table->string('slug');
             $table->string('name');
-            $tabel->text('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('thumbnail')->nullable();
             $table->unsignedTinyInteger('rating')->nullable();
             $table->timestamps();

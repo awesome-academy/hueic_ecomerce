@@ -15,16 +15,10 @@ class CreateSuggestProducstsTable extends Migration
     {
         Schema::create('suggest_pruducts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')
-                ->references('id')->on('users')
-                ->onDelete('cascade');
+            $table->bigInteger('user_id')->unsigned();            
             $table->string('name');
             $table->text('description');
-            $table->bigInteger('admin_id')->unsigned();
-            $table->foreign('admin_id')
-                ->references('id')->on('admins')
-                ->onDelete('cascade');
+            $table->bigInteger('admin_id')->unsigned();           
             $table->tinyInteger('status');
             $table->boolean('reply')->default(false);
             $table->timestamps();
