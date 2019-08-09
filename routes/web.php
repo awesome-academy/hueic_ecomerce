@@ -12,5 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.index');
 });
+
+Route::get('/adnin', function () {
+    return view('admin.index');
+})->name('admin');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('admin-login', 'Auth\AdminLoginController@showLoginForm');
+
+// Route::post('admin-login', ['as'=>'admin-login','uses'=>'Auth\AdminLoginController@login']);
