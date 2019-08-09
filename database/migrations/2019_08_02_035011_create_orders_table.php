@@ -16,10 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('info_delivery_id')->unsigned();
-            $table->foreign('info_delivery_id')
-                ->references('id')->on('info_deliveries')
-                ->onDelete('set null');
-            $table->$table->float('total', 12, 2);
+            $table->float('total', 12, 2);
             $table->tinyInteger('status');
             $table->text('reason_reject');
             $table->bigInteger('admin_id')->nullable();
