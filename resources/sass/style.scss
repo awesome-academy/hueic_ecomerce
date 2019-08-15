@@ -1,0 +1,38 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+//fontawesome
+@import "~font-awesome/css/font-awesome.css";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    h3 {
+        font-size: 1.4em;
+    }
+    i {
+        font-size: 1.8em!important;
+    }
+    main{
+        min-height: calc(100vh - 280px);
+    }
+    header {
+        background-color: $primary-color;
+        #nav-top {
+            a {
+                color: white;
+            }
+        }
+    }
+    footer{
+        .footer-social {
+            .nav-item{
+                padding: 10px;
+            }
+        }
+    }
+}
