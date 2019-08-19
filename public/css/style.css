@@ -12978,14 +12978,23 @@ body i {
 
 body main {
   min-height: calc(100vh - 280px);
+  margin-top: 20px;
 }
 
 body header {
   background-color: #FD5B32;
 }
 
+body header #nav-top {
+  background-color: #878787;
+}
+
 body header #nav-top a {
   color: white;
+}
+
+body header #nav-top nav {
+  padding: 3px 0;
 }
 
 body footer .footer-social .nav-item {

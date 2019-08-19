@@ -19,7 +19,7 @@
 </head>
 <body >
     <header id="header-section">
-        <div id="nav-top" class="hidden-xs bg-secondary">
+        <div id="nav-top" class="hidden-xs">
             <div class="container">
                 <div class="row">
                     @include('includes.front.navbars.navtop')
