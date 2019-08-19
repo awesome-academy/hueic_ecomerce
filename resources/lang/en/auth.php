@@ -24,4 +24,5 @@ return [
     'Remember Me' => 'Remember Me',
     'Forgot Your Password?' => 'Forgot Your Password?',
     'Logout' => 'Logout',
+    'Login admin page' => 'Login admin page',
 ];
