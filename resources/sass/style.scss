@@ -19,12 +19,17 @@ body {
     }
     main{
         min-height: calc(100vh - 280px);
+        margin-top: 20px;
     }
     header {
         background-color: $primary-color;
         #nav-top {
+            background-color: #878787;
             a {
                 color: white;
+            }
+            nav{
+                padding: 3px 0;
             }
         }
     }
