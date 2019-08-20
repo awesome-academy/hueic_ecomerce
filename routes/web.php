@@ -15,13 +15,16 @@ Route::get('/', function () {
     return view('front.index');
 });
 
-Route::get('/adnin', function () {
-    return view('admin.index');
-})->name('admin');
+Route::group(['middleware' => ['auth:admin']], function () {
+    Route::get('/adnin', function () {
+        return view('admin.index');
+    })->name('admin');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('admin-login', 'Auth\AdminLoginController@showLoginForm');
+Route::get('admin-login', 'Auth\AdminLoginController@showLoginForm');
 
-// Route::post('admin-login', ['as'=>'admin-login','uses'=>'Auth\AdminLoginController@login']);
+Route::post('admin-login', ['as'=>'admin-login','uses'=>'Auth\AdminLoginController@login']);
