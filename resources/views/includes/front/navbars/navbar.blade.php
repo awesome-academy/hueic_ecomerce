@@ -4,7 +4,7 @@
     </button>
     <div class="collapse navbar-collapse flex-fill" id="navbar-main">
         <a class="navbar-brand mr-auto px-3 text-light" href="{{ route('home') }}">{{ config('app.name') }}</a>
-        {!! Form::open(['method' => 'post', 'routes' => 'password.email', 'class' => 'form-inline flex-fill px-5'])!!}
+        {!! Form::open(['method' => 'post', 'routes' => 'search', 'class' => 'form-inline flex-fill px-5'])!!}
             {{ Form::text('search', '', ['class' => 'form-control flex-fill mr-sm-2', 'aria-label' => 'Search', 'placeholder' => 'Search'])}}
             {{ Form::button(trans('Search'), ['class' => 'btn btn-outline-light my-2 my-sm-0 text-white']) }}
         {!! Form::close() !!}
