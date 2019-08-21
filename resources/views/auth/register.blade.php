@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.front.app')
 
 @section('content')
 <div class="container">
@@ -9,13 +9,11 @@
 
                 <div class="card-body">
                     {!! Form::open(['method' => 'POST', 'routes' => 'register']) !!}
-
+                        @include('includes.form_validation')
                         <div class="form-group row">
                             {!! Form::label('name', trans('auth.Name'), ['class' => 'col-md-4 col-form-label text-md-right']) !!}
-
                             <div class="col-md-6">
                                 {{ Form::text('name', old('name'), ['id' => 'name', 'class' => 'form-control @error("name") is-invalid @enderror', 'required' => 'required', 'autocomplete' => 'name', 'autofocus' => 'autofocus'])}}
-
                                 @include('includes.form_validation')
                             </div>
                         </div>
@@ -24,8 +22,6 @@
                             {!! Form::label('email', trans('auth.Email'), ['class' => 'col-md-4 col-form-label text-md-right']) !!}
                             <div class="col-md-6">
                                 {{ Form::email('email', old('email') ? "old('email')" : null,['id' => 'email', 'class' => 'form-control @error("email") is-invalid @enderror', 'required' => 'required', 'autocomplete' => 'email', 'autofocus'=>'autofocus']) }}
-
-                                @include('includes.form_validation')
                             </div>
                         </div>
 
@@ -35,7 +31,6 @@
                             <div class="col-md-6">
                                 {{ Form::password('password', ['id' => 'password', 'class' => 'form-control @error("password") is-invalid @enderror', 'required' => 'required', 'autocomplete' => 'password']) }}
 
-                                @include('includes.form_validation')
                             </div>
                         </div>
 
