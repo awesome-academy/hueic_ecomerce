@@ -13,17 +13,19 @@
 
 Route::get('/', function () {
     return view('front.index');
-});
+})->name('home');
 
-Route::group(['middleware' => ['auth:admin']], function () {
-    Route::get('/adnin', function () {
+Route::group(['prefix'=>'admin','middleware' => ['auth:admin']], function(){
+    Route::get('/',function(){
         return view('admin.index');
     })->name('admin');
 });
 
-Auth::routes();
+Route::group(['middleware' => ['auth:web']], function () {
+    Route::resource('/users','UserController')->only(['index','update']);
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
 
 Route::get('admin-login', 'Auth\AdminLoginController@showLoginForm');
 
