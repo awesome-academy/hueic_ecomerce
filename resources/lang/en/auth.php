@@ -25,4 +25,5 @@ return [
     'Forgot Your Password?' => 'Forgot Your Password?',
     'Logout' => 'Logout',
     'Login admin page' => 'Login admin page',
+    'My profile' => 'My profile',
 ];
