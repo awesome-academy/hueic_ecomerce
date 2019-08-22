@@ -2,44 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
 use App\Http\Requests\AdminLogin;
 
 class AdminLoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
-
-    protected $guard = 'admin';
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest:admin')->except('logout');
-    }
 
     public function showLoginForm()
     {
@@ -48,9 +18,33 @@ class AdminLoginController extends Controller
 
     public function login(AdminLogin $request)
     {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->route('admin');
+        $user = $request->only([
+            'email',
+            'password',
+        ]);
+
+        if(Auth::guard('admin')->attempt($user, $request->filled('remember'))){
+            //Authentication passed...
+            return redirect()
+                ->intended(route('admin.home'))
+                ->withMessage('You are Logged in as Admin!');
         }
-        return back()->withErrors(['email' => 'Email or password are wrong.']);
+        //Authentication failed...
+        return $this->loginFailed();
+    }
+
+    public function logout()
+    {
+        Auth::guard('admin')->logout();
+        return redirect()
+            ->route('home')
+            ->with('status','Admin has been logged out!');
+    }
+
+    private function loginFailed(){
+        return redirect()
+            ->back()
+            ->withInput()
+            ->with('error','Login failed, please try again!');
     }
 }

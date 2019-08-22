@@ -15,10 +15,20 @@ Route::get('/', function () {
     return view('front.index');
 })->name('home');
 
-Route::group(['prefix'=>'admin','middleware' => ['auth:admin']], function(){
-    Route::get('/',function(){
-        return view('admin.index');
-    })->name('admin');
+Route::prefix('/admin')->name('admin.')->group(function(){
+
+    Route::get('login', ['as'=>'showLogin','uses'=>'Auth\AdminLoginController@showLoginForm']);
+    Route::post('login', ['as'=>'login','uses'=>'Auth\AdminLoginController@login']);
+
+    Route::get('logout', ['as'=>'logout','uses'=>'Auth\AdminLoginController@logout']);
+
+    Route::get('register', ['as'=>'showRegister','uses'=>'Auth\AdminRegisterController@showRegistrationForm']);
+    Route::post('register', ['as'=>'register','uses'=>'Auth\AdminRegisterController@register']);
+    Route::group(['middleware' => ['auth:admin']], function () {
+        Route::get('/',function(){
+            return view('admin.index');
+        })->name('home');
+    });
 });
 
 Route::group(['middleware' => ['auth:web']], function () {
@@ -26,7 +36,3 @@ Route::group(['middleware' => ['auth:web']], function () {
 });
 
 Auth::routes();
-
-Route::get('admin-login', 'Auth\AdminLoginController@showLoginForm');
-
-Route::post('admin-login', ['as'=>'admin-login','uses'=>'Auth\AdminLoginController@login']);

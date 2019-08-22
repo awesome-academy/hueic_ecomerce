@@ -13,7 +13,7 @@ class AdminLogin extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,8 +24,15 @@ class AdminLogin extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|unique:admins',
-            'password' => 'required'
+            'email'    => 'required|email|exists:admins|min:5|max:191',
+            'password' => 'required|string|min:4|max:255',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'email.exists' => 'These credentials do not match our records.',
         ];
     }
 }
