@@ -12978,10 +12978,6 @@ body {
   vertical-align: text-bottom;
 }
 
-/*
- * Sidebar
- */
-
 .sidebar {
   position: fixed;
   top: 0;
@@ -13035,18 +13031,10 @@ body {
   text-transform: uppercase;
 }
 
-/*
- * Content
- */
-
 [role=main] {
   padding-top: 48px;
   /* Space for fixed navbar */
 }
-
-/*
- * Navbar
- */
 
 .navbar-brand {
   padding-top: 0.75rem;
@@ -13071,5 +13059,45 @@ body {
 .form-control-dark:focus {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.table tr th.name {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 50px;
+}
+
+.table tr th.email {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 60px;
+}
+
+.table tr th.phone {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 40px;
+}
+
+.table tr th.edit {
+  width: 30px;
+}
+
+.table tr th.address {
+  width: auto;
 }
 

@@ -4,60 +4,38 @@
             <li class="nav-item">
             <a class="nav-link active" href="#">
                 <span data-feather="home"></span>
-                @lang('Dashboard') <span class="sr-only">(current)</span>
+                @lang('sidebar_admin.dashboard')
             </a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">
                 <span data-feather="file"></span>
-                @lang('Orders')
+                @lang('sidebar_admin.orders')
             </a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">
                 <span data-feather="shopping-cart"></span>
-                @lang('Products')
+                @lang('sidebar_admin.products')
             </a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">
-                <span data-feather="users"></span>
-                @lang('Customers')
+                <span data-feather="layers"></span>
+                @lang('sidebar_admin.customers')
             </a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">
                 <span data-feather="bar-chart-2"></span>
-                @lang('Reports')
+                @lang('sidebar_admin.reports')
             </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="layers"></span>
-                    @lang('Integrations')
+                <a class="nav-link" href="{{ route('admin.users.index')}}">
+                    <span data-feather="users"></span>
+                    @lang('sidebar_admin.user')
                 </a>
-            </li>
-        </ul>
-
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-
-            <span> @lang('Saved reports')</span>
-            <a class="d-flex align-items-center text-muted" href="#">
-            <span data-feather="plus-circle"></span>
-            </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-            <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                @lang('Current month')
-            </a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                @lang('Last quarter')
-            </a>
             </li>
         </ul>
     </div>
